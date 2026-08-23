@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Check, Loader2 } from 'lucide-react'
 import { cn } from '../../lib/utils'
+import ZeroMark from '../ui/ZeroMark'
 
 const steps = [
   { key: 'message', label: 'Patient' },
@@ -33,12 +34,12 @@ export default function HeroSequence() {
 
   return (
     <div className="rounded-lg border border-stroke bg-surface">
-      <div className="flex items-center justify-between border-b border-stroke bg-surface-alt px-5 py-3">
+      <div className="flex items-start justify-between gap-3 border-b border-stroke bg-surface-alt px-5 py-3">
         <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.1em] text-muted">
           WhatsApp — Riverside Clinic
         </span>
-        <span className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.08em] text-cyan">
-          <span className="h-1.5 w-1.5 rounded-full bg-cyan" aria-hidden="true" />
+        <span className="flex shrink-0 items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.08em] text-primary-ink">
+          <ZeroMark size={11} className="shrink-0" />
           Zero active
         </span>
       </div>

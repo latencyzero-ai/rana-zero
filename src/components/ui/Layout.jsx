@@ -65,10 +65,8 @@ export function SectionHeading({ eyebrow, title, description, align = 'left', cl
       )}
     >
       {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
-      <h2 className="text-[28px] leading-[1.15] tracking-[-0.02em] md:text-[36px]">{title}</h2>
-      {description && (
-        <p className="mt-4 text-[16px] leading-[1.6] text-body md:text-[17px]">{description}</p>
-      )}
+      <h2 className="text-h2">{title}</h2>
+      {description && <p className="mt-4 text-body-lg text-body">{description}</p>}
     </div>
   )
 }

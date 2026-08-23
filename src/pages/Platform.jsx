@@ -12,7 +12,7 @@ export default function Platform() {
     <>
       <Section tone="bg" divider={false} spacing="xl" className="pt-14 md:pt-20">
         <Badge tone="vision">Vision</Badge>
-        <h1 className="mt-4 max-w-2xl text-[34px] font-extrabold leading-[1.12] tracking-[-0.02em] text-ink sm:text-[44px]">
+        <h1 className="mt-4 max-w-2xl text-h1 text-ink">
           Infrastructure for business agents.
         </h1>
         <p className="mt-5 max-w-xl text-[16px] leading-[1.6] text-body">

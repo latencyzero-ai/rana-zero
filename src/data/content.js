@@ -65,7 +65,7 @@ export const capabilities = [
   {
     icon: 'Clock',
     title: 'Delay management',
-    status: 'building',
+    status: 'live',
     body: 'Zero notices when a queue is running behind and keeps waiting patients informed automatically.',
     meta: null,
   },

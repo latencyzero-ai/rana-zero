@@ -25,18 +25,16 @@ export default function Home() {
   return (
     <>
       {/* 1. Hero */}
-      <Section tone="bg" divider={false} spacing="xl" className="pt-14 md:pt-20">
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+      <Section tone="bg" divider={false} spacing="xl" className="pt-16 md:pt-24">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-10">
           <div>
             <Eyebrow>RAnA</Eyebrow>
-            <h1 className="text-[38px] font-extrabold leading-[1.08] tracking-[-0.03em] text-ink sm:text-[48px] lg:text-[54px]">
-              AI agents that do the work.
-            </h1>
-            <p className="mt-6 max-w-lg text-[17px] leading-[1.6] text-body">
+            <h1 className="text-display text-ink">AI agents that do the work.</h1>
+            <p className="mt-7 max-w-md text-body-lg text-body">
               RAnA builds AI agents for real business workflows. Our first agent, Zero, operates the
               front desk for clinics through WhatsApp.
             </p>
-            <div className="mt-8 flex flex-wrap items-center gap-4">
+            <div className="mt-9 flex flex-wrap items-center gap-4">
               <Button href="#meet-zero" icon={ArrowRight}>
                 Meet Zero
               </Button>
@@ -44,12 +42,14 @@ export default function Home() {
                 Explore RAnA
               </Button>
             </div>
-            <p className="mt-8 max-w-md text-[13px] leading-relaxed text-muted">
+            <p className="mt-10 max-w-sm border-l-2 border-stroke-strong pl-3 text-[13px] leading-relaxed text-muted">
               Built for real workflows. Designed to operate with humans, not replace them blindly.
             </p>
           </div>
 
-          <HeroSequence />
+          <div className="lg:mt-14">
+            <HeroSequence />
+          </div>
         </div>
       </Section>
 
@@ -125,23 +125,32 @@ export default function Home() {
 
       {/* 7. Human control */}
       <Section tone="alt">
-        <SectionHeading
-          eyebrow="Human control"
-          title="Autonomous where it can be. Human when it should be."
-          description="Zero doesn't replace clinic staff — it removes the repetitive work standing between patients and the people who make judgment calls."
-        />
-        <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-stroke bg-stroke sm:grid-cols-3">
-          {[
-            { icon: ShieldCheck, title: 'Clear boundaries', body: 'Zero knows exactly what it is — and is not — allowed to do.' },
-            { icon: Users, title: 'Human escalation', body: 'Staff can step in whenever a situation calls for judgment.' },
-            { icon: Eye, title: 'Operational visibility', body: 'The clinic can see what Zero is doing at every moment.' },
-          ].map((item) => (
-            <div key={item.title} className="flex flex-col gap-3 bg-surface p-6">
-              <item.icon size={18} className="text-primary" aria-hidden="true" />
-              <h3 className="text-[15px] font-bold text-ink">{item.title}</h3>
-              <p className="text-[13.5px] leading-relaxed text-body">{item.body}</p>
-            </div>
-          ))}
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+          <SectionHeading
+            eyebrow="Human control"
+            title="Autonomous where it can be. Human when it should be."
+            description="Zero doesn't replace clinic staff — it removes the repetitive work standing between patients and the people who make judgment calls."
+            className="max-w-none"
+          />
+          <ul className="flex flex-col">
+            {[
+              { icon: ShieldCheck, title: 'Clear boundaries', body: 'Zero knows exactly what it is — and is not — allowed to do.' },
+              { icon: Users, title: 'Human escalation', body: 'Staff can step in whenever a situation calls for judgment.' },
+              { icon: Eye, title: 'Operational visibility', body: 'The clinic can see what Zero is doing at every moment.' },
+            ].map((item, i) => (
+              <li
+                key={item.title}
+                className="flex items-start gap-5 border-t border-stroke py-6 first:pt-0 last:pb-0"
+              >
+                <span className="mt-0.5 font-mono text-[12px] text-muted">0{i + 1}</span>
+                <item.icon size={18} className="mt-0.5 shrink-0 text-primary" aria-hidden="true" />
+                <div>
+                  <h3 className="text-h4 font-bold text-ink">{item.title}</h3>
+                  <p className="mt-1 text-body-sm text-body">{item.body}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </Section>
 

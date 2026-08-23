@@ -27,7 +27,7 @@ export default function Developers() {
             <Badge tone="cyan" dot>
               Developer preview
             </Badge>
-            <h1 className="mt-4 text-[34px] font-extrabold leading-[1.1] tracking-[-0.02em] text-ink sm:text-[42px]">
+            <h1 className="mt-4 text-h1 text-ink">
               Build once. Deploy everywhere.
             </h1>
             <p className="mt-5 max-w-md text-[16px] leading-[1.6] text-body">
@@ -45,7 +45,7 @@ export default function Developers() {
 
           <div className="rounded-lg border border-stroke bg-surface p-1.5">
             <div className="flex items-center justify-between px-3.5 py-2">
-              <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.08em] text-cyan">
+              <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.08em] text-cyan-action">
                 Status: online
               </span>
             </div>

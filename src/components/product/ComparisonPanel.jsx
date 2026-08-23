@@ -43,13 +43,13 @@ export default function ComparisonPanel() {
         <ul className="mt-4 flex flex-col gap-2">
           {zeroActions.map((action) => (
             <li key={action} className="flex items-center gap-2 text-[13px] text-body">
-              <Check size={14} className="shrink-0 text-cyan" aria-hidden="true" />
+              <Check size={14} className="shrink-0 text-cyan-action" aria-hidden="true" />
               {action}
             </li>
           ))}
         </ul>
         <div className="mt-6 flex items-start gap-2 text-[13px] font-medium text-ink">
-          <Check size={16} className="mt-0.5 shrink-0 text-cyan" aria-hidden="true" />
+          <Check size={16} className="mt-0.5 shrink-0 text-cyan-action" aria-hidden="true" />
           <span>Conversation is only the beginning.</span>
         </div>
       </div>

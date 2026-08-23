@@ -18,7 +18,7 @@ export default function GetZero() {
               </Badge>
               <Badge tone="neutral">Limited capacity</Badge>
             </div>
-            <h1 className="mt-4 text-[34px] font-extrabold leading-[1.1] tracking-[-0.02em] text-ink sm:text-[42px]">
+            <h1 className="mt-4 text-h1 text-ink">
               Deploy Zero in your clinic.
             </h1>
             <p className="mt-5 max-w-md text-[16px] leading-[1.6] text-body">

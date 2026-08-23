@@ -44,7 +44,7 @@ export default function ZeroChatPreview() {
         </div>
 
         <div className="mt-3 flex items-start gap-2 rounded-md bg-surface-sunken px-3 py-2.5">
-          <Zap size={14} className="mt-0.5 shrink-0 text-cyan" aria-hidden="true" />
+          <Zap size={14} className="mt-0.5 shrink-0 text-cyan-action" aria-hidden="true" />
           <p className="font-mono text-[11px] leading-relaxed text-ink">
             Zero action: queue #18 assigned. Front desk notified.
           </p>

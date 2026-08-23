@@ -12,7 +12,7 @@ const variants = {
   ghost:
     'border border-stroke text-ink bg-transparent hover:border-ink',
   tertiary:
-    'px-0 py-0 normal-case tracking-normal font-display text-[15px] font-semibold text-primary hover:text-cyan',
+    'px-0 py-0 normal-case tracking-normal font-display text-[15px] font-semibold text-primary hover:text-primary-ink',
 }
 
 const sizes = {

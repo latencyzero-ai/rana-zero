@@ -1,32 +1,71 @@
 @import "tailwindcss";
 
 @theme {
-  /* ---- Color: Operational Realism ---- */
+  /* ---- Color: Operational Realism ----
+     Neutrals corrected to the official brand's neutral gray
+     (sampled #F7F7F7 from the Zero lockup) rather than a warm off-white.
+     Cyan/blue gradient endpoints tightened to sampled values from the
+     Zero icon (North_9.jpg). --color-black is the literal brand black
+     (sampled #000000 from the RAnA lockup) reserved for deliberate
+     full-dark surfaces; --color-ink stays near-black for text, since
+     pure black body copy is harsher to read on screens. */
   --color-ink: #111111;
-  --color-body: #3c494c;
-  --color-muted: #6c797c;
-  --color-stroke: #e5e5e2;
-  --color-stroke-strong: #d6d6d2;
+  --color-black: #000000;
+  --color-body: #3a3f3f;
+  --color-muted: #6b7171;
+  --color-stroke: #e2e2e0;
+  --color-stroke-strong: #d2d2cf;
 
   --color-surface: #ffffff;
-  --color-surface-alt: #f6f3f2;
-  --color-surface-sunken: #f0edec;
-  --color-bg: #fcf9f8;
-  --color-bg-alt: #faf9f7;
+  --color-surface-alt: #e8e8e5;
+  --color-surface-sunken: #dedede;
+  --color-bg: #f7f7f7;
+  --color-bg-alt: #f0f0ee;
 
   --color-primary: #006875;
   --color-primary-ink: #004b55;
-  --color-cyan: #00c3d9;
-  --color-deep-blue: #003ee7;
+  --color-cyan: #00b6d6;
+  --color-cyan-action: #007a94;
+  --color-deep-blue: #0068de;
 
   --color-error: #ba1a1a;
   --color-error-container: #ffdad6;
   --color-amber: #8e4e00;
   --color-amber-container: #f8ecdd;
 
-  /* ---- Type ---- */
+  /* ---- Type ----
+     Hanken Grotesk carries all interface type (headings, body, nav).
+     Museo Moderno Extrabold is reserved strictly for the literal "RAnA"
+     wordmark -- see Navbar/Footer -- per the brand's own logo lockup,
+     where Zero's product wordmark deliberately stays in a plain grotesk.
+     JetBrains Mono covers labels, eyebrows, status pills and code. */
   --font-display: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-wordmark: "MuseoModerno", "Hanken Grotesk", ui-sans-serif, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  /* ---- Formal type scale, fluid between mobile and desktop ---- */
+  --text-display: clamp(2.5rem, 2.05rem + 2vw, 4rem);
+  --text-display--line-height: 1.04;
+  --text-display--letter-spacing: -0.03em;
+  --text-h1: clamp(2.125rem, 1.85rem + 1.3vw, 3.25rem);
+  --text-h1--line-height: 1.08;
+  --text-h1--letter-spacing: -0.03em;
+  --text-h2: clamp(1.625rem, 1.45rem + 0.85vw, 2.375rem);
+  --text-h2--line-height: 1.15;
+  --text-h2--letter-spacing: -0.02em;
+  --text-h3: clamp(1.125rem, 1.06rem + 0.3vw, 1.3125rem);
+  --text-h3--line-height: 1.3;
+  --text-h3--letter-spacing: -0.01em;
+  --text-h4: 1rem;
+  --text-h4--line-height: 1.4;
+  --text-body-lg: clamp(1.0625rem, 1.02rem + 0.2vw, 1.1875rem);
+  --text-body-lg--line-height: 1.6;
+  --text-body: 1rem;
+  --text-body--line-height: 1.55;
+  --text-body-sm: 0.875rem;
+  --text-body-sm--line-height: 1.5;
+  --text-label: 0.6875rem;
+  --text-label--line-height: 1.3;
 
   /* ---- Radius: soft, disciplined, 4px module ---- */
   --radius-xs: 0.125rem;
@@ -67,13 +106,17 @@
     letter-spacing: -0.02em;
   }
 
+  p {
+    max-width: 60ch;
+  }
+
   ::selection {
     background-color: var(--color-cyan);
     color: var(--color-ink);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-cyan);
+    outline: 2px solid var(--color-cyan-action);
     outline-offset: 2px;
     border-radius: 2px;
   }
@@ -89,15 +132,20 @@
 }
 
 @layer utilities {
+  /* Both gradients use --color-cyan-action, not the vivid --color-cyan:
+     white button text and the gradient-clipped heading text sit directly
+     on top of this, and the brand's raw cyan (#00b6d6) fails WCAG AA
+     contrast against white across most of the gradient's width. The
+     darker action-cyan keeps the same hue and passes at every stop. */
   .text-gradient {
-    background-image: linear-gradient(135deg, var(--color-cyan), var(--color-deep-blue));
+    background-image: linear-gradient(100deg, var(--color-cyan-action), var(--color-deep-blue));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
 
   .bg-gradient-action {
-    background-image: linear-gradient(135deg, var(--color-cyan), var(--color-deep-blue));
+    background-image: linear-gradient(100deg, var(--color-cyan-action), var(--color-deep-blue));
   }
 
   .hairline-t {

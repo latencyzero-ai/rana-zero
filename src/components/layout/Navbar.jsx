@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import Button from '../ui/Button'
 import { Container } from '../ui/Layout'
+import ZeroMark from '../ui/ZeroMark'
 import { nav } from '../../data/content'
 
 export default function Navbar() {
@@ -16,24 +17,37 @@ export default function Navbar() {
   }, [])
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 h-[76px] border-b border-stroke bg-bg/90 backdrop-blur-sm">
+    <header className="fixed inset-x-0 top-0 z-50 h-[80px] border-b border-stroke bg-bg/90 backdrop-blur-sm">
       <Container className="flex h-full items-center justify-between">
         <Link to="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
           <Logo />
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-9 md:flex" aria-label="Primary">
           {nav.map((item) => (
             <NavLink
               key={item.to}
               to={item.to}
               className={({ isActive }) =>
-                `font-mono text-[13px] font-medium uppercase tracking-[0.06em] transition-colors ${
-                  isActive ? 'text-ink underline decoration-cyan decoration-2 underline-offset-8' : 'text-muted hover:text-ink'
+                `flex items-center gap-1.5 font-mono text-[13px] font-medium uppercase tracking-[0.06em] transition-colors ${
+                  isActive ? 'text-ink' : 'text-muted hover:text-ink'
                 }`
               }
             >
-              {item.label}
+              {({ isActive }) => (
+                <>
+                  {item.to === '/' && <ZeroMark size={13} className="shrink-0" />}
+                  <span className="relative">
+                    {item.label}
+                    <span
+                      className={`absolute -bottom-1.5 left-0 h-[2px] w-full bg-cyan transition-opacity ${
+                        isActive ? 'opacity-100' : 'opacity-0'
+                      }`}
+                      aria-hidden="true"
+                    />
+                  </span>
+                </>
+              )}
             </NavLink>
           ))}
         </nav>
@@ -63,11 +77,12 @@ export default function Navbar() {
                 to={item.to}
                 onClick={() => setOpen(false)}
                 className={({ isActive }) =>
-                  `rounded-sm px-2 py-3 font-mono text-[13px] font-medium uppercase tracking-[0.06em] ${
+                  `flex items-center gap-2 rounded-sm px-2 py-3 font-mono text-[13px] font-medium uppercase tracking-[0.06em] ${
                     isActive ? 'bg-surface-sunken text-ink' : 'text-muted'
                   }`
                 }
               >
+                {item.to === '/' && <ZeroMark size={14} className="shrink-0" />}
                 {item.label}
               </NavLink>
             ))}
@@ -84,9 +99,8 @@ export default function Navbar() {
 export function Logo({ light = false }) {
   return (
     <span
-      className={`font-display text-[22px] font-extrabold tracking-[-0.02em] ${
-        light ? 'text-white' : 'text-ink'
-      }`}
+      className={`font-wordmark text-[24px] font-extrabold ${light ? 'text-white' : 'text-ink'}`}
+      style={{ fontWeight: 800 }}
     >
       RAnA
     </span>

@@ -35,7 +35,7 @@ export default function App() {
         Skip to content
       </a>
       <Navbar />
-      <main id="main-content" tabIndex={-1} className="flex-1 pt-[76px] focus:outline-none">
+      <main id="main-content" tabIndex={-1} className="flex-1 pt-[80px] focus:outline-none">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/get-zero" element={<GetZero />} />

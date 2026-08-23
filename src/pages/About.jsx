@@ -8,8 +8,8 @@ export default function About() {
     <>
       <Section tone="bg" divider={false} spacing="xl" className="pt-14 md:pt-20">
         <Eyebrow>The mission</Eyebrow>
-        <h1 className="max-w-2xl text-[32px] font-extrabold leading-[1.15] tracking-[-0.02em] text-ink sm:text-[42px]">
-          AI shouldn&rsquo;t just talk about work. It should do it.
+        <h1 className="max-w-[38rem] text-h1 text-ink">
+          AI shouldn&rsquo;t just talk about work. It should do&nbsp;it.
         </h1>
         <p className="mt-5 max-w-xl text-[16px] leading-[1.6] text-body">
           We are building RAnA to bridge the gap between conversational AI and operational reality.
@@ -74,7 +74,7 @@ export default function About() {
                   key={item}
                   className="flex items-center gap-2.5 border-b border-stroke py-3 text-[14px] text-body last:border-b-0"
                 >
-                  <CheckCircle2 size={16} className="shrink-0 text-cyan" aria-hidden="true" />
+                  <CheckCircle2 size={16} className="shrink-0 text-cyan-action" aria-hidden="true" />
                   {item}
                 </li>
               ))}
